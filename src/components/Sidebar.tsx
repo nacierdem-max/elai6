@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import AppLogo from '@/components/ui/AppLogo';
-import { LayoutDashboard, Users, FolderKanban, ClipboardList, AlertTriangle, FileText, BarChart3, Settings, ChevronLeft, ChevronRight, Archive, LogOut } from 'lucide-react';
+import { LayoutDashboard, AlertTriangle, FileText, BarChart3, Settings, ChevronLeft, ChevronRight, Archive, LogOut, Layers } from 'lucide-react';
 import { useRole } from '@/context/RoleContext';
 import { type PersonnelRoleKey } from '@/data/mockData';
 
@@ -19,14 +19,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { id: 'nav-dashboard', label: 'Dashboard', icon: LayoutDashboard, href: '/dashboard' },
-  { id: 'nav-team', label: 'Ekip & Personel', icon: Users, href: '/team', badge: 3, badgeColor: 'bg-blue-100 text-blue-600' },
-  {
-    id: 'nav-projects', label: 'Projeler', icon: FolderKanban, href: '/projects', badge: 22,
-    allowedRoles: ['proje-lideri', 'departman-lideri', 'urun-yoneticisi', 'arge-temsilcisi', 'arge-yoneticisi'],
-  },
-  {
-    id: 'nav-tasks', label: 'Görev / Kanban', icon: ClipboardList, href: '/task-kanban-panel', badge: 39, badgeColor: 'bg-red-100 text-red-500',
-  },
+  { id: 'nav-workspace', label: 'Çalışma Alanı', icon: Layers, href: '/workspace', badge: 3, badgeColor: 'bg-blue-100 text-blue-600' },
   {
     id: 'nav-risks', label: 'Riskler', icon: AlertTriangle, href: '/risks', badge: 18, badgeColor: 'bg-orange-100 text-orange-500',
     allowedRoles: ['proje-lideri', 'departman-lideri', 'urun-yoneticisi', 'arge-temsilcisi', 'arge-yoneticisi'],
